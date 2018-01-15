@@ -59,7 +59,7 @@
 
 ```c
 
-下面的命令可以是用正则表达式
+下面的命令可以使用正则表达式
 
 字符查找 grep
 字符查找处理 sed awk
@@ -150,5 +150,6 @@
 - 参考资料
 
 [正则表达式](http://wiki.jikexueyuan.com/project/linux-command/chap20.html)
+
 [正则表达式入门经典,书籍,无链接](书籍)
 
