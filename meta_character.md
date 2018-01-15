@@ -233,7 +233,29 @@ $
 
 ```
 
--11 转义字符
+- POSIX 字符集
+```c
+
+[:alnum:]alnum字母数字字符。在 ASCII 中，等价于：[A-Za-z0-9]
+[:word:]word与[:alnum:]相同, 但增加了下划线字符。
+[:alpha:]alpha字母字符。在 ASCII 中，等价于：[A-Za-z]
+[:blank:]blank包含空格和 tab 字符。
+[:cntrl:]cntrlASCII 的控制码。包含了0到31，和127的 ASCII 字符。
+[:digit:]digit数字0到9
+[:graph:]graph可视字符。在 ASCII 中，它包含33到126的字符。
+[:lower:]lower小写字母。
+[:punct:]punct标点符号字符。在 ASCII 中，等价于：
+[:print:]print可打印的字符。在[:graph:]中的所有字符，再加上空格字符。
+[:space:]space空白字符，包括空格，tab，回车，换行，vertical tab, 
+               和 form feed.在 ASCII 中， 等价于：[ \t\r\n\v\f ]
+[:upper:]upper大写字母。
+[:xdigit:]xdigit用来表示十六进制数字的字符。在 ASCII 中，等价于：[0-9A-Fa-f]
+
+
+```
+
+
+-12 转义字符
 
 ```c
 
