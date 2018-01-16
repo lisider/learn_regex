@@ -1,4 +1,3 @@
-
 - awk
 
 ```c
@@ -7,6 +6,9 @@
 
 ```
 
+- 怎么键入一个合法的awk命令
+
+
 ```c
 
 awk -Fs '/pattern/ {action}' input-file
@@ -14,11 +16,13 @@ awk -Fs -f scripts.awk input-file
 awk  -f scripts.awk input-file
 awk  -f scripts.awk input-file input-file2
 
+
+示例:
+
 awk 'BEGIN {FS=":";print "----header----"}\
         /mail/ {print $1}\
         END {print "----footer----"}'\
         /etc/passwd
-
 
 awk -F: '/mail/ {print $1}' /etc/passwd
 ```
@@ -66,6 +70,9 @@ pattern 可以 被 替换成 正则表达式
 ---
 ---
 
+## awk脚本
+
+
 - awk 脚本怎么写?
 
 ```c
@@ -93,7 +100,7 @@ END {command1;command2}
 
 
 
-## 内部变量
+- 内部变量
 
 ```c
 
@@ -139,7 +146,4 @@ FNR
 
 
 ```
-
-
-
 
