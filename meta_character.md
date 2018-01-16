@@ -233,7 +233,7 @@ $
 
 ```
 
-- POSIX 字符集
+-12 POSIX 字符集
 ```c
 
 [:alnum:]alnum字母数字字符。在 ASCII 中，等价于：[A-Za-z0-9]
