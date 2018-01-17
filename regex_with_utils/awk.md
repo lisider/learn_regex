@@ -155,9 +155,30 @@ FNR
 
 ```
 
-- 自定义变量
+- 自定义变量及变量运算
 
 ```c
+
+awk的语句: 
+     awk的语句主要是赋值语句，用来给变量赋值。
+1、把直接值或一个变量值赋值给变量。如果直接值是字符串要加双引号。
+举例
+
+awk 'BEGIN {x=1 ; y=3 ; x=y ; print "x=" x " ; y=" y }'
+
+2、把一个表达式的值赋值给变量。表达式一般是数值表达式，也可以是其它表达式。
+数值表达式: num1 operator num2
+operator可以是: +(加) -(减) *(乘) /(除) %(取模) ^(求幂)
+当num1或者num2是字符串而是不是数字时，无论是否加有双引号，awk都视其值为0
+条件选择表达式: A?B:C (A为布尔表达式，B和C可以是表达式或者直接值)
+当布尔表达式A的值为真时，整个表达式的值为B，A的值为假时，整个表达式的值为C
+举例
+
+awk 'BEGIN {x=3 ; x+=2 ; y=x+2 ; print "x=" x " ; y=" y }'
+awk 'BEGIN {x=3 ; y=x>4?"ok":4 ; print "x=" x " ; y=" y }'
+
+3、为了方便书写，awk也支持C语言语法的赋值操作符: += -= *= /= %= ^= ++ --
+
 
 ```
 
@@ -165,6 +186,13 @@ FNR
 
 ```c
 
+其中condition一般为布尔表达式，body和else-body是awk语句块。
+1、if (condition) {then-body} [else {else-body}]
+2、while (condition) {body}
+3、do {body} while (condition)
+4、for (initialization; condition; increment) {body}与C语言的for结构的语法相同。
+5、break : 跳出包含它的for、while、do-while 循环
+6、continue : 跳过for、while、do-while循环的body的剩余部分，而立刻进行下一次循环的执行。
 
 
 ```
