@@ -204,3 +204,34 @@ awk 'BEGIN {x=3 ; y=x>4?"ok":4 ; print "x=" x " ; y=" y }'
 
 ```
 
+
+---
+
+## awk 的 BEGIN 和 END
+
+```c
+
+BEGIN和END:
+
+在Unix awk中两个特别的表达式，BEGIN和END
+这两者都可用于pattern中(参考前面的awk语法)
+提供BEGIN和END的作用是给程序赋予初始状态和在程序结束之后执行一些扫尾的工作。
+
+任何在BEGIN之后列出的操作（在{}内）将在Unix awk开始扫描输入之前执行，而END之后列出的操作将在扫描完全部的输入之后执行。
+因此，通常使用BEGIN来显示变量和预置（初始化）变量，使用END来输出最终结果。
+
+例：累计销售文件xs中的销售金额（假设销售金额在记录的第三字段）：
+$awk
+'BEGIN { FS=":";print "统计销售金额";total=0 }
+{print $3;total=total+$3;}
+END {printf "销售金额总计：%.2f",total}' sx
+
+（注：>是shell提供的第二提示符，如要在shell程序Unix awk语句和Unix awk语言中换行，则需在行尾加反斜杠）
+
+在这里，BEGIN预置了内部变量FS（字段分隔符）和自定义变量total,同时在扫描之前显示出输出行头。
+而END则在扫描完成后打印出总合计。
+
+
+```
+
+
